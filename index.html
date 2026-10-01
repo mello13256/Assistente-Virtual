@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assistente Virtual: a IA que enxerga sua tela</title>
+<meta name="description" content="Um companheiro de IA para Windows que vê sua tela, avisa do perigo no jogo, aponta o erro no código e mexe no PC por você. IA local, grátis e privada.">
+<meta name="theme-color" content="#0e1016">
+<meta property="og:title" content="Assistente Virtual: a IA que enxerga sua tela">
+<meta property="og:description" content="Avisa do perigo no jogo, aponta o erro no código e mexe no PC por você. IA local, grátis e privada.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mello13256.github.io/Assistente-Virtual/media/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="media/logo-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-glow" aria-hidden="true"></div>
+
+<header class="topbar" id="topo">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#topo" aria-label="Assistente Virtual, início">
+      <span class="logo" data-logo><img src="logo.svg" alt="" width="32" height="32"></span>
+      <span>Assistente Virtual</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Seções">
+      <a href="#recursos">Recursos</a>
+      <a href="#orbe">Como ele se mostra</a>
+      <a href="#pedidos">Só pedindo</a>
+      <a href="#privacidade">Privacidade</a>
+      <a href="#requisitos">Requisitos</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="btn btn-primary btn-sm" href="#download">Baixar</a>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============================================================ HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="logo logo-hero" data-logo><img src="logo.svg" alt="" width="104" height="104"></span>
+      <a class="pill" href="#download"><span class="pill-dot"></span><span data-version-label>v0.9.11</span> · usa o PC como uma pessoa</a>
+      <h1>Uma IA que <span class="grad">enxerga sua tela</span> e só fala quando ajuda.</h1>
+      <p class="lead">Avisa do inimigo chegando por trás, aponta a vírgula esquecida no seu código e responde "pra que serve isso?" olhando o que está na tela. Roda no seu PC, de graça, com a IA na sua placa de vídeo.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg" href="#download">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3 5.5 10.5 4.4v7.1H3V5.5Zm0 13 7.5 1.1v-7H3v5.9Zm8.4 1.2L21 21v-8.4h-9.6v7.1Zm0-15.4v7.2H21V3l-9.6 1.3Z"/></svg>
+          <span>Baixar para Windows<small data-hero-sub>Grátis · v0.9.11</small></span>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#demo">Ver em ação</a>
+      </div>
+      <ul class="trust">
+        <li><span class="tick"></span>IA local e grátis</li>
+        <li><span class="tick"></span>Sem conta nem assinatura</li>
+        <li><span class="tick"></span>Atualiza sozinho</li>
+        <li class="hero-count" data-count-wrap hidden><span class="live-dot"></span><b data-count>0</b>&nbsp;downloads</li>
+      </ul>
+    </div>
+
+    <div class="stage-wrap">
+      <div class="stage window" id="stage" aria-label="Demonstração animada do assistente">
+        <div class="win-bar">
+          <span class="win-dot"></span>
+          <span class="win-title" id="stageTitle">Jogo</span>
+          <span class="win-ctrl" aria-hidden="true">—&nbsp;&nbsp;✕</span>
+        </div>
+        <div class="stage-body">
+          <!-- cena: jogo -->
+          <div class="scene scene-game is-on" data-scene="game" aria-hidden="true">
+            <svg class="scene-art" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2140"/><stop offset=".7" stop-color="#3a2a58"/><stop offset="1" stop-color="#4a2c52"/></linearGradient>
+                <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#241c3a"/><stop offset="1" stop-color="#130f22"/></linearGradient>
+              </defs>
+              <rect width="600" height="360" fill="url(#sky)"/>
+              <circle cx="470" cy="80" r="30" fill="#f3d9ff" opacity=".18"/>
+              <path d="M0 250 L90 190 L170 235 L260 170 L350 225 L440 180 L520 215 L600 185 L600 360 L0 360Z" fill="#2a2145"/>
+              <path d="M0 290 L120 245 L230 285 L330 250 L450 290 L600 255 L600 360 L0 360Z" fill="url(#hill)"/>
+              <g class="enemy"><path d="M86 258 l10 -26 l10 26 z" fill="#ff5d6c" opacity=".85"/><circle cx="96" cy="226" r="7" fill="#ff5d6c"/></g>
+              <path d="M300 300 l-14 38 h28 z" fill="#0b0a14" opacity=".9"/>
+            </svg>
+            <div class="hud">
+              <div class="hud-bar"><span class="hud-lbl">VIDA</span><span class="hud-track"><span class="hud-fill hp"></span></span></div>
+              <div class="hud-bar"><span class="hud-lbl">STAMINA</span><span class="hud-track"><span class="hud-fill st"></span></span></div>
+            </div>
+            <div class="danger-arrow" aria-hidden="true"></div>
+          </div>
+          <!-- cena: código -->
+          <div class="scene scene-code" data-scene="code" aria-hidden="true">
+            <div class="code-side">
+              <div class="cs-title">EXPLORER</div>
+              <div class="cs-item on">main.py</div>
+              <div class="cs-item">utils.py</div>
+            </div>
+            <pre class="code"><span class="ln">1</span><span class="kw">def</span> <span class="fn">media</span>(valores):
+<span class="ln">2</span>    total = <span class="nu">0</span>
+<span class="ln">3</span>    <span class="kw">for</span> v <span class="kw">in</span> valores<span class="err" id="codeFix"><span class="caret"></span></span>
+<span class="ln">4</span>        total += v
+<span class="ln">5</span>    <span class="kw">return</span> total / <span class="fn">len</span>(valores)
+<span class="ln">6</span>
+<span class="ln">7</span><span class="fn">print</span>(media([<span class="nu">7</span>, <span class="nu">8</span>, <span class="nu">10</span>]))</pre>
+            <div class="ctl-banner" aria-hidden="true"><span class="ctl-dot"></span><span><b>No controle: corrige esse erro</b><small>Editando main.py · Esc ou mexa o mouse para parar</small></span></div>
+            <div class="ghost-cursor" aria-hidden="true"></div>
+          </div>
+          <!-- cena: navegador -->
+          <div class="scene scene-web" data-scene="web" aria-hidden="true">
+            <div class="web-url"><span class="lock">⚠</span> promo-premio-pix.top/resgate</div>
+            <div class="web-card">
+              <div class="web-h">🎉 Você ganhou R$ 5.000!</div>
+              <div class="web-p">Confirme seus dados bancários em até 10 minutos para receber.</div>
+              <div class="web-btn">RESGATAR AGORA</div>
+            </div>
+          </div>
+
+          <div class="toast" id="toast" role="status" aria-live="polite">
+            <span class="toast-bar"></span>
+            <div class="toast-col">
+              <div class="toast-head"><span class="toast-title">Assistente · IA local</span><span class="chip" id="toastChip">DICA</span></div>
+              <div class="toast-text" id="toastText"></div>
+              <div class="toast-progress"><span id="toastProgress"></span></div>
+            </div>
+          </div>
+          <canvas class="orb" id="stageOrb" width="76" height="76" aria-hidden="true"></canvas>
+        </div>
+      </div>
+      <div class="stage-legend" id="stageLegend" aria-hidden="true">
+        <button data-go="0" class="on">Jogo</button><button data-go="1">Código</button><button data-go="2">Golpe</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap stats">
+    <div class="stat"><b>100% local</b><span>a IA roda na sua placa de vídeo</span></div>
+    <div class="stat"><b>~2,5 s</b><span>entre análises no modo gamer</span></div>
+    <div class="stat"><b>5× por segundo</b><span>reflexo local contra dano</span></div>
+    <div class="stat"><b>0 cadastros</b><span>instala e usa, sem conta</span></div>
+  </div>
+</section>
+
+<!-- ============================================================ RECURSOS -->
+<section class="section" id="recursos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Recursos</span>
+      <h2>Um segundo par de olhos, em tudo que você faz</h2>
+      <p>Ele detecta sozinho se você está jogando ou trabalhando e muda o jeito de ajudar.</p>
+    </div>
+    <div class="features">
+      <article class="card feature reveal">
+        <div class="f-icon" style="--c1:#ff5d6c;--c2:#ff9f5d"><svg viewBox="0 0 24 24"><path d="M6 9h4M8 7v4M15 10h.01M18 8h.01M7.5 5h9A4.5 4.5 0 0 1 21 9.5l.6 5.6a2.6 2.6 0 0 1-4.6 1.9L15 15H9l-2 2a2.6 2.6 0 0 1-4.6-1.9L3 9.5A4.5 4.5 0 0 1 7.5 5Z"/></svg></div>
+        <h3>Modo gamer</h3>
+        <p>Analisa a tela a cada ~2,5 s e avisa do que você não viu: inimigo por trás, vida baixa, lava, anoitecendo. Fica quieto quando você já está vendo.</p>
+      </article>
+      <article class="card feature reveal">
+        <div class="f-icon" style="--c1:#6c8cff;--c2:#a46bff"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg></div>
+        <h3>Revisa seu código</h3>
+        <p>Com a ponte do VS Code ele sabe o erro exato ("',' esperado na linha 12"), espera você parar de digitar e avisa.</p>
+      </article>
+      <article class="card feature reveal">
+        <div class="f-icon" style="--c1:#00e5ff;--c2:#6c8cff"><svg viewBox="0 0 24 24"><path d="M5 3l12 6.5-5.2 1.3L9.6 16 5 3Z"/><path d="m12 12 6 6"/></svg></div>
+        <h3>Mexe no PC por você</h3>
+        <p>"Pesquisa isso", "organiza meus downloads", "corrige esse erro": usa o PC como uma pessoa, vendo a tela inteira. Antes de enviar ou apagar algo, pede a sua confirmação.</p>
+      </article>
+      <article class="card feature reveal">
+        <div class="f-icon" style="--c1:#3ddc97;--c2:#35c2ff"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></div>
+        <h3>IA local e grátis</h3>
+        <p>Um modelo de visão roda na sua placa de vídeo pelo Ollama. Com uma chave de API (Claude, ChatGPT, Gemini, Grok, DeepSeek, OpenRouter e outros), a nuvem entra só nas perguntas difíceis.</p>
+      </article>
+      <article class="card feature reveal">
+        <div class="f-icon" style="--c1:#a46bff;--c2:#ff6bcb"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></div>
+        <h3>Conversa por voz</h3>
+        <p>Ouve sem precisar chamar e entende se a frase era para ele ou para seus amigos no Discord. Você começa a falar, ele cala.</p>
+      </article>
+      <article class="card feature reveal">
+        <div class="f-icon" style="--c1:#ffb547;--c2:#ff6bcb"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Cuida de você</h3>
+        <p>Pela webcam, só no seu PC: avisa quem está espiando, a distância da tela e a postura, baixa o brilho e lembra da pausa 20-20-20.</p>
+      </article>
+      <article class="card feature reveal">
+        <div class="f-icon" style="--c1:#35c2ff;--c2:#3ddc97"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 0-4 4v.3A3.5 3.5 0 0 0 6 14a3.5 3.5 0 0 0 3 5.5h.5M12 3a4 4 0 0 1 4 4v.3a3.5 3.5 0 0 1 2 6.7 3.5 3.5 0 0 1-3 5.5h-.5M12 3v18"/></svg></div>
+        <h3>Lembra do que importa</h3>
+        <p>"Lembra que eu prefiro respostas curtas", "nesse jogo, só me avisa de projéteis". A memória fica só no seu computador.</p>
+      </article>
+      <article class="card feature reveal">
+        <div class="f-icon" style="--c1:#6c8cff;--c2:#00e5ff"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H4zM8 20h8M12 16v4"/><path d="m9 10 2 2 4-4"/></svg></div>
+        <h3>Estuda o jogo antes</h3>
+        <p>Ao abrir um jogo novo, pesquisa na Steam, na Wikipedia e na wiki do Fandom e monta um guia da HUD e dos inimigos.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ORBE -->
+<section class="section section-alt" id="orbe">
+  <div class="wrap orb-grid">
+    <div class="orb-show reveal">
+      <canvas id="bigOrb" width="260" height="260" aria-label="Orbe do assistente"></canvas>
+      <div class="orb-caption" id="orbCaption" aria-live="polite"></div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Interface</span>
+      <h2>Discreto no canto, claro quando importa</h2>
+      <p class="muted-p">Um orbe flutuante mostra o que o assistente está fazendo. Os avisos deslizam num balão que não rouba o foco, deixa o clique passar para o jogo e nem aparece nas capturas de tela.</p>
+      <div class="seg" role="tablist" aria-label="Estados do orbe" id="orbStates">
+        <button role="tab" data-state="ocioso" aria-selected="true">Parado</button>
+        <button role="tab" data-state="ouvindo">Ouvindo</button>
+        <button role="tab" data-state="pensando">Pensando</button>
+        <button role="tab" data-state="falando">Falando</button>
+        <button role="tab" data-state="alerta">Alerta</button>
+        <button role="tab" data-state="controlando">No controle</button>
+      </div>
+      <div class="urgency-list">
+        <div class="urg"><span class="chip chip-alta">ALERTA</span><span>Perigo agora: aparece na hora e pulsa, com seta apontando de onde vem.</span></div>
+        <div class="urg"><span class="chip chip-media">DICA</span><span>Algo útil que você talvez não tenha visto.</span></div>
+        <div class="urg"><span class="chip chip-baixa">COMENTÁRIO</span><span>Um toque leve, como um erro no código.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PEDIDOS -->
+<section class="section" id="pedidos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Só pedindo</span>
+      <h2>Tudo no menu também funciona por voz ou no chat</h2>
+      <p>Os pedidos comuns são entendidos na hora, sem IA. Clique num pedido e veja o que acontece.</p>
+    </div>
+    <div class="ask-grid reveal">
+      <div class="window chat">
+        <div class="win-bar"><span class="win-dot"></span><span class="win-title">Assistente Virtual<small>Pergunte qualquer coisa sobre a tela</small></span></div>
+        <div class="chat-log" id="chatLog" aria-live="polite"></div>
+        <div class="chips" id="askChips">
+          <button data-ask="0">desliga a webcam</button>
+          <button data-ask="1">liga o lembrete de pausa</button>
+          <button data-ask="2">não reduz o brilho sozinho</button>
+          <button data-ask="3">modo gamer</button>
+          <button data-ask="4">desliga o controle do PC</button>
+          <button data-ask="5">desfaz</button>
+        </div>
+      </div>
+      <div class="window settings">
+        <div class="win-bar"><span class="win-dot"></span><span class="win-title">Configurações<small>Assistente Virtual</small></span></div>
+        <div class="set-body">
+          <div class="set-page">Câmera, voz e controle</div>
+          <div class="set-row" data-key="webcam"><div><b>Usar a webcam</b><small>Postura, distância e bisbilhoteiros</small></div><span class="toggle on" role="switch" aria-checked="true" aria-label="Usar a webcam"></span></div>
+          <div class="set-row" data-key="brilho"><div><b>Brilho automático</b><small>Reduz quando você chega perto</small></div><span class="toggle on" role="switch" aria-checked="true" aria-label="Brilho automático"></span></div>
+          <div class="set-row" data-key="pausa"><div><b>Lembrete 20-20-20</b><small>A cada 20 min, olhe para longe</small></div><span class="toggle" role="switch" aria-checked="false" aria-label="Lembrete 20-20-20"></span></div>
+          <div class="set-row" data-key="controle"><div><b>Controle do PC</b><small>Mouse e teclado quando você pede</small></div><span class="toggle on" role="switch" aria-checked="true" aria-label="Controle do PC"></span></div>
+          <div class="set-row" data-key="modo"><div><b>Modo</b><small>auto detecta jogos sozinho</small></div><span class="field" id="modeField">auto</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ DEMO -->
+<section class="section section-alt" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Em ação</span>
+      <h2>Veja o assistente trabalhando</h2>
+      <p>Gravações da interface de verdade.</p>
+    </div>
+    <div class="demo-grid">
+      <figure class="window demo reveal">
+        <div class="win-bar"><span class="win-dot"></span><span class="win-title">Revisando código no VS Code</span></div>
+        <img src="media/controle_vscode.gif" alt="O assistente move o mouse até cada erro no VS Code, apaga e digita só o que precisa mudar" loading="lazy" width="1008" height="560">
+        <figcaption>Pediram "revisa esse código": ele lê o arquivo, leva o mouse até cada problema e corrige digitando só o que muda.</figcaption>
+      </figure>
+      <figure class="window demo reveal">
+        <div class="win-bar"><span class="win-dot"></span><span class="win-title">Orbe e balão de aviso</span></div>
+        <img src="media/preview.gif" alt="O orbe muda de estado e um balão de aviso aparece digitando a mensagem" loading="lazy" width="820" height="330">
+        <figcaption>O orbe ouve, pensa e fala; o balão "digita" o aviso e some sozinho.</figcaption>
+      </figure>
+    </div>
+    <div class="shots reveal">
+      <img src="media/configuracoes-modelos.png" alt="Configurações: modelos de IA" loading="lazy" width="860" height="640">
+      <img src="media/chat.png" alt="Janela de conversa" loading="lazy" width="500" height="660">
+      <img src="media/configuracoes-camera.png" alt="Configurações: câmera e saúde" loading="lazy" width="860" height="640">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PRIVACIDADE -->
+<section class="section" id="privacidade">
+  <div class="wrap priv-grid">
+    <div class="reveal">
+      <span class="eyebrow">Privacidade</span>
+      <h2>Sua tela fica no seu PC</h2>
+      <p class="muted-p">Com a IA local, nenhuma captura sai do computador. Quando você usa uma IA na nuvem, a imagem vai só para a análise e nunca é salva pelo assistente.</p>
+    </div>
+    <ul class="priv-list">
+      <li class="card reveal"><b>Capturas nunca são salvas</b><span>Elas ficam só na memória, pelo tempo da análise.</span></li>
+      <li class="card reveal"><b>Janelas sensíveis são ignoradas</b><span>Bancos, gerenciadores de senha e aba anônima não são capturados. A lista é sua.</span></li>
+      <li class="card reveal"><b>Webcam e microfone locais</b><span>O rosto é analisado com OpenCV e a voz é transcrita com o Whisper, tudo no PC.</span></li>
+      <li class="card reveal"><b>Só você manda</b><span>Texto que aparece na tela nunca muda configurações nem aciona o controle do PC.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ DOWNLOAD -->
+<section class="section section-download" id="download">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Download</span>
+      <h2>Baixe o Assistente Virtual</h2>
+      <p id="relMeta">Versão 0.9.11 · Windows 10 e 11 (64 bits)</p>
+      <div class="dl-count" data-count-wrap hidden>
+        <span class="live-dot"></span><b data-count>0</b><span>downloads desde a primeira versão</span>
+      </div>
+    </div>
+
+    <div class="dl-grid">
+      <article class="window dl-card dl-main reveal">
+        <div class="dl-top">
+          <span class="badge">Recomendado</span>
+          <h3 data-boot-title>Instalador</h3>
+          <div class="dl-size"><b data-size="boot">3 MB</b><span data-boot-sub>1 arquivo, que baixa o resto</span></div>
+        </div>
+        <ul class="dl-feats" data-boot-only>
+          <li>Um arquivo só: abra, clique em Avançar e pronto</li>
+          <li>Com placa NVIDIA: instalação completa (<span data-size="full">4,9 GB</span>), com a voz na placa de vídeo</li>
+          <li>Sem NVIDIA: instalação leve, sem baixar o que não serve no seu PC</li>
+          <li>O Ollama (IA local) só é baixado se você ainda não tiver</li>
+          <li>Confere cada arquivo (SHA-256) e tenta de novo se a internet cair</li>
+        </ul>
+        <a class="btn btn-primary btn-lg btn-block" id="dlBoot" href="https://github.com/mello13256/Assistente-Virtual/releases/latest/download/AssistenteVirtual-Instalador.exe">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Baixar o instalador
+        </a>
+        <details class="ps" id="dlParts">
+          <summary><span>Prefere baixar a instalação completa à mão? (<span data-parts>4</span> arquivos)</span></summary>
+          <p>Deixe todos na mesma pasta e abra o <code>AssistenteVirtual-Setup.exe</code>. O navegador pode perguntar se permite baixar vários arquivos: clique em <b>Permitir</b>.</p>
+          <button class="btn btn-lg btn-block" id="dlAll">Baixar todos os arquivos</button>
+          <div class="file-list" id="fileList"></div>
+          <p>Ou pelo PowerShell, que retoma se a internet cair e confere o SHA-256 de cada parte:</p>
+          <div class="cmd"><code id="psFull">irm https://mello13256.github.io/Assistente-Virtual/instalar.ps1 | iex</code><button class="copy" data-copy="psFull">Copiar</button></div>
+        </details>
+      </article>
+
+      <article class="window dl-card reveal">
+        <div class="dl-top">
+          <span class="badge badge-muted">Mais rápido</span>
+          <h3>Instalação leve</h3>
+          <div class="dl-size"><b data-size="lite">201 MB</b><span>1 arquivo</span></div>
+        </div>
+        <ul class="dl-feats">
+          <li>Só o app; o resto baixa quando precisar</li>
+          <li>Reconhecimento de voz no processador</li>
+          <li>Instale o <a href="https://ollama.com/download/windows">Ollama</a> à parte (o app te leva lá)</li>
+          <li>Atualizações continuam leves</li>
+        </ul>
+        <a class="btn btn-lg btn-block" id="dlLite" href="https://github.com/mello13256/Assistente-Virtual/releases/latest/download/AssistenteVirtual-Update.exe">Baixar instalação leve</a>
+        <details class="ps">
+          <summary><span>Pelo PowerShell</span></summary>
+          <div class="cmd"><code id="psLite">&amp; ([scriptblock]::Create((irm https://mello13256.github.io/Assistente-Virtual/instalar.ps1))) -Leve</code><button class="copy" data-copy="psLite">Copiar</button></div>
+        </details>
+      </article>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal"><span class="step-n">1</span><div><b>Baixe</b><span>O <code>AssistenteVirtual-Instalador.exe</code>: um arquivo só, de poucos MB.</span></div></div>
+      <div class="step reveal"><span class="step-n">2</span><div><b>Instale</b><span>Abra e clique em Avançar: ele escolhe e baixa o que o seu PC precisa. Não precisa de administrador. Se o Windows avisar "Editor desconhecido", clique em <i>Mais informações → Executar assim mesmo</i>.</span></div></div>
+      <div class="step reveal"><span class="step-n">3</span><div><b>Use</b><span>Na primeira vez ele baixa a IA local (~3 GB), com o progresso no balão. Depois é só procurar o ícone de olho perto do relógio.</span></div></div>
+    </div>
+    <p class="rel-links"><a id="relNotes" href="https://github.com/mello13256/Assistente-Virtual/releases/latest">Notas da versão</a> · <a href="https://github.com/mello13256/Assistente-Virtual/releases">Versões anteriores</a></p>
+  </div>
+</section>
+
+<!-- ============================================================ REQUISITOS -->
+<section class="section section-alt" id="requisitos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Requisitos</span>
+      <h2>O que você precisa</h2>
+      <p>O mais importante é a placa de vídeo: é nela que roda a IA local.</p>
+    </div>
+    <div class="req-grid">
+      <div class="window req reveal"><span class="req-k">Sistema</span><b>Windows 10 ou 11</b><span>64 bits</span></div>
+      <div class="window req reveal"><span class="req-k">Placa de vídeo</span><b>NVIDIA com 8 GB</b><span>Funciona com menos, ou só no processador, mais devagar</span></div>
+      <div class="window req reveal"><span class="req-k">Memória</span><b>16 GB de RAM</b><span>Recomendado para rodar junto com jogos</span></div>
+      <div class="window req reveal"><span class="req-k">Espaço</span><b>~10 GB</b><span>App, bibliotecas CUDA, modelos de voz e de IA</span></div>
+      <div class="window req reveal"><span class="req-k">Áudio</span><b>Microfone</b><span>De preferência um fone com microfone</span></div>
+      <div class="window req reveal"><span class="req-k">Opcional</span><b>Webcam e chave de API</b><span>Para saúde e postura, e para a IA da nuvem (Claude, GPT, Gemini…) nas perguntas difíceis</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FAQ -->
+<section class="section" id="faq">
+  <div class="wrap faq-wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq">
+      <details class="window reveal"><summary>É grátis mesmo?</summary><p>Sim. Por padrão tudo roda com a IA local, sem custo. A nuvem é opcional: só é usada se você colocar uma chave de API (Anthropic, OpenAI, Google e mais 18 opções), e há um limite diário de gasto (padrão US$ 3) que você controla.</p></details>
+      <details class="window reveal"><summary>Precisa de internet?</summary><p>Só para baixar e instalar a IA local na primeira vez, para as vozes neurais (sem internet ele usa a voz offline) e para a IA da nuvem, se você usar. A análise da tela com a IA local funciona offline.</p></details>
+      <details class="window reveal"><summary>Pesa no jogo?</summary><p>O modelo padrão cabe junto com a maioria dos jogos numa placa de 8 GB. Com VRAM sobrando e nenhum jogo aberto, ele usa um modelo maior e mais esperto. Se o jogo engasgar, aumente o intervalo do modo gamer.</p></details>
+      <details class="window reveal"><summary>Funciona em jogos competitivos online?</summary><p>Por padrão ele não dá informação tática em tempo real em jogos como Valorant, CS2, LoL e Fortnite, porque isso pode violar os termos de uso e render banimento.</p></details>
+      <details class="window reveal"><summary>O Windows disse "Editor desconhecido". É seguro?</summary><p>O instalador ainda não é assinado digitalmente, por isso o aviso. Clique em <i>Mais informações → Executar assim mesmo</i>. Os arquivos vêm direto das versões publicadas no GitHub, e o comando do PowerShell confere o SHA-256 de cada um.</p></details>
+      <details class="window reveal"><summary>O antivírus (Norton, Avast, McAfee…) bloqueou ou pôs em quarentena. E agora?</summary><p>É um falso positivo comum em programas novos sem assinatura digital, ainda mais num que lê a tela e controla o mouse e o teclado, que é justamente o que esses antivírus vigiam. Não precisa desligar o antivírus: restaure o arquivo da quarentena e adicione uma exceção para a pasta <code>%LOCALAPPDATA%\Programs\AssistenteVirtual</code> (e para o instalador, se foi ele o bloqueado). No Norton: <i>Segurança → Histórico → o item → Restaurar e excluir este arquivo</i>. Se quiser ajudar, envie o arquivo ao fabricante como falso positivo.</p></details>
+      <details class="window reveal"><summary>Como atualizo?</summary><p>O assistente confere se há versão nova ao abrir e a cada 12 horas. Quando tiver, é só dizer "atualiza" ou usar o menu. Se o pacote pesado não mudou, ele baixa só o app (~200 MB).</p></details>
+      <details class="window reveal"><summary>Como desinstalo?</summary><p>Diga "quero te desinstalar": ele mostra tudo o que vai sair (inclusive a IA local) e só remove se você confirmar. Ou em <i>Configurações do Windows → Aplicativos → Assistente Virtual → Desinstalar</i>. Por esse caminho, suas configurações e a memória ficam em <code>%APPDATA%\AssistenteVirtual</code>, se quiser apagar também.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CTA -->
+<section class="cta-band">
+  <div class="wrap cta-in reveal">
+    <span class="logo logo-cta" data-logo><img src="logo.svg" alt="" width="84" height="84"></span>
+    <div>
+      <h2>Pronto para ter companhia na tela?</h2>
+      <p>Instala sem administrador, e dá para desinstalar a qualquer momento.</p>
+    </div>
+    <a class="btn btn-primary btn-lg" href="#download">Baixar agora</a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot-in">
+    <div class="brand"><span class="logo" data-logo><img src="logo.svg" alt="" width="28" height="28"></span><span>Assistente Virtual</span></div>
+    <p>Feito com Python, Qt e IA local. Projeto de Prova de Aptidão Profissional.</p>
+    <nav aria-label="Links do projeto"><a href="https://github.com/mello13256/Assistente-Virtual/releases">Versões</a><a href="https://github.com/mello13256/Assistente-Virtual/issues">Relatar um problema</a></nav>
+  </div>
+</footer>
+
+<div class="snack" id="snack" role="status" aria-live="polite"></div>
+<script src="app.js" defer></script>
+</body>
+</html>
